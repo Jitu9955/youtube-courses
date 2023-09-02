@@ -1,14 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
+import { createRoot } from "react-dom/client";
+import { Auth0Provider } from "@auth0/auth0-react";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Auth0Provider
+    domain="dev-igv5p66c8vh7d16r.us.auth0.com"
+    clientId="jstR8AO5yGZ2RiIP1wZR88GcjiVMElqA"
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+  >
     <App />
-  </React.StrictMode>
+  </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
